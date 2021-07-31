@@ -1,12 +1,11 @@
 class BookingsController < ApplicationController
   before_action
 
-  def index
-    @booking = Booking.all
-  end
-
   def new
-    @booking = Booking.new
+    rick_id = params[:rick_id]
+    morty_id = params[:morty_id]
+    customer_id = params[:customer_id]
+    @booking = Booking.new(rick_id, morty_id, customer_id)
   end
 
   def create
@@ -21,6 +20,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:rick_id, :morty_id).permit( :rick_rating_id, :morty_rating_id )
+    params.require(:rick_id, :morty_id).permit(:rick_rating_id, :morty_rating_id)
   end
 end
