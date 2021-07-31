@@ -1,0 +1,10 @@
+<h1>characters#index</h1>
+
+<h2>Start by choosing your favorite <%= @category %></h2>
+
+<% @characters.each do |character| %>
+    <%= character.name %>
+    <%= character.photo_url %>
+    <%= character.description %>
+    <%= link_to "en savoir plus", character_path(character) %>
+<% end %>
