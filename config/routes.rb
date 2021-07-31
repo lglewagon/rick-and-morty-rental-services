@@ -2,11 +2,12 @@ Rails.application.routes.draw do
   get 'bookings/new'
   devise_for :users
   root to: 'characters#choose' #afficher la page avec les deux liens rick & morty
-  
-  resources :characters, only: [:index, :show] do 
+
+
+  resources :characters, only: [:index, :show] do
     resources :bookings, only: [ :new, :create]
   end
-  
+
   resources :bookings, only: [ :show, :update]
 
 
