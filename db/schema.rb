@@ -10,19 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_29_192713) do
+ActiveRecord::Schema.define(version: 2021_07_31_083809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
     t.boolean "active"
-    t.bigint "character_id", null: false
+    t.bigint "rick_id"
+    t.bigint "morty_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "customer_id"
-    t.index ["character_id"], name: "index_bookings_on_character_id"
+    t.bigint "rick_rating_id"
+    t.bigint "morty_rating_id"
     t.index ["customer_id"], name: "index_bookings_on_customer_id"
+    t.index ["morty_id"], name: "index_bookings_on_morty_id"
+    t.index ["morty_rating_id"], name: "index_bookings_on_morty_rating_id"
+    t.index ["rick_id"], name: "index_bookings_on_rick_id"
+    t.index ["rick_rating_id"], name: "index_bookings_on_rick_rating_id"
   end
 
   create_table "characters", force: :cascade do |t|
@@ -31,6 +37,12 @@ ActiveRecord::Schema.define(version: 2021_07_29_192713) do
     t.string "photo_url"
     t.string "category"
     t.boolean "availability"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -49,6 +61,9 @@ ActiveRecord::Schema.define(version: 2021_07_29_192713) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bookings", "characters"
+  add_foreign_key "bookings", "characters", column: "morty_id"
+  add_foreign_key "bookings", "characters", column: "rick_id"
+  add_foreign_key "bookings", "ratings", column: "morty_rating_id"
+  add_foreign_key "bookings", "ratings", column: "rick_rating_id"
   add_foreign_key "bookings", "users", column: "customer_id"
 end
