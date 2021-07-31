@@ -17,17 +17,15 @@ ActiveRecord::Schema.define(version: 2021_07_31_083809) do
 
   create_table "bookings", force: :cascade do |t|
     t.boolean "active"
-    t.bigint "rick_id"
-    t.bigint "morty_id"
+    t.bigint "character_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "customer_id"
     t.bigint "rick_rating_id"
     t.bigint "morty_rating_id"
+    t.index ["character_id"], name: "index_bookings_on_character_id"
     t.index ["customer_id"], name: "index_bookings_on_customer_id"
-    t.index ["morty_id"], name: "index_bookings_on_morty_id"
     t.index ["morty_rating_id"], name: "index_bookings_on_morty_rating_id"
-    t.index ["rick_id"], name: "index_bookings_on_rick_id"
     t.index ["rick_rating_id"], name: "index_bookings_on_rick_rating_id"
   end
 
@@ -61,8 +59,7 @@ ActiveRecord::Schema.define(version: 2021_07_31_083809) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bookings", "characters", column: "morty_id"
-  add_foreign_key "bookings", "characters", column: "rick_id"
+  add_foreign_key "bookings", "characters"
   add_foreign_key "bookings", "ratings", column: "morty_rating_id"
   add_foreign_key "bookings", "ratings", column: "rick_rating_id"
   add_foreign_key "bookings", "users", column: "customer_id"
