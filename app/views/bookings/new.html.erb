@@ -1,4 +1,18 @@
 <h1>Your current booking 🪐 /h1>
+    <p></p>
+    <div class="Characters">
+        <% character = Character.find(params["character_id"]) %>
+        <p><%= link_to "Main character", character_path(character)%></p>
+        <p></p>
+        <p><%= image_tag ("profile.jpeg") if Character.find(params["character_id"]).category == 'Rick' %></p>
+
+        <% associated_character = Character.find(params["associated_character_id"]) %>
+        <p></p>
+       <p><%= link_to "Associated character", character_path(associated_character)%></p>
+        <p><%= image_tag ("Morty_Smith.png") if Character.find(params["character_id"]).category == 'Morty'%></p>
+        
+    </div>
+
 <p>Find me in app/views/bookings/new.html.erb</p>
 
-<%  %>
+

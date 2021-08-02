@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
     if user_signed_in? == false
       redirect_to new_user_session_path, alert: "Buuuuuurp … Wubba Lubba dub-dub you need to sign yourself in ! 🤦‍♂️"
     else
-      @booking = Booking.new(rick_id, morty_id, customer_id)
+      @booking = Booking.new(main_character_id: character_id, associated_character_id: associated_character_id)
     end
   end
 
@@ -23,6 +23,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:rick_id, :morty_id).permit(:rick_rating_id, :morty_rating_id)
+    params.require(:main_character_id, :associated_character_id).permit(:rick_rating_id, :morty_rating_id)
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_31_083809) do
+ActiveRecord::Schema.define(version: 2021_08_02_101108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2021_07_31_083809) do
     t.bigint "customer_id"
     t.bigint "rick_rating_id"
     t.bigint "morty_rating_id"
+    t.integer "main_character_id"
+    t.integer "associated_character_id"
     t.index ["customer_id"], name: "index_bookings_on_customer_id"
     t.index ["morty_id"], name: "index_bookings_on_morty_id"
     t.index ["morty_rating_id"], name: "index_bookings_on_morty_rating_id"
