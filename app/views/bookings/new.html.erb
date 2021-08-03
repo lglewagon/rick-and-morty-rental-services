@@ -1,4 +1,29 @@
-<h1>Your current booking 🪐 /h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+<h1>Your current booking 🪐 </h1>
+    <div class= "character">
+        <% character = Character.find(params["character_id"]) %>
+        <p><%= link_to "Main character", character_path(character)%></p>
+        <p class= "character"><%= image_tag ("Rick_Sanchez.png") if Character.find(params["character_id"]).category == 'Rick'  %></p>
+        <p class= "character"><%= image_tag ("Morty_Smith.png") if Character.find(params["character_id"]).category == 'Morty'%></p>
+    </div>
+    <div class= "character">
+        <% associated_character = Character.find(params["associated_character_id"]) %>
+        <p><%= link_to "Associated character", character_path(associated_character)%></p>
+        <p class= "character"><%= image_tag ("Rick_Sanchez.png") if Character.find(params["associated_character_id"]).category == 'Rick' %></p>
+        <p class= "character"><%= image_tag ("Morty_Smith.png") if Character.find(params["associated_character_id"]).category == 'Morty'%></p>  
+    </div>
+    <div class="character-info">
+        <p>Remaining time <%= Time.now  %></p>
+        <%# Insert here booking time counter %>
+        <p>Title: <%= character.name %> & <%= associated_character.name %> </p>
+        <p>Lien: <%= link_to "Main character", character_path(character) %> & <%= link_to "Associated character", character_path(associated_character) %> </p>
+        <p>Description: <%= character.description %> </p>
+        <p>Description: <%= associated_character.description %></p>
+    </div>
+    <%# <div class="user_info">
+    <p>Avatar: <%= user. %> </p>
+    </div>
 
-<%  %>
+    <%# Need to code User info %>
+
+
+

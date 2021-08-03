@@ -1,0 +1,13 @@
+.character img {
+    height: 100%;
+    width: 80px;
+    object-fit: cover;
+    border-radius: 50px;
+  }
+
+body.character {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: Open-sans, sans-serif;
+}
