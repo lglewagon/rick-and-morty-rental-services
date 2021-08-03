@@ -13,13 +13,19 @@ class CharactersController < ApplicationController
     end
 
     def show
-      @character = Character.find(params[:id])
+      if params[:source] ==  
+        @character = Character.find(params[:id])
+      end
+
       @category = ""
       if @character.category == "Rick"
         @category = "Morty"
       else
         @category = "Rick"
       end
-      @associated_characters = Character.where(category: @category)
+      
+      if params[:source] != "character_show"
+        @associated_characters = Character.where(category: @category)
+      end
     end
 end
