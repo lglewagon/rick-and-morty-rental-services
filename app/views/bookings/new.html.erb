@@ -1,13 +1,13 @@
 <h1>Your current booking 🪐 </h1>
     <div class= "character">
         <% character = Character.find(params["character_id"]) %>
-        <p><%= link_to "Main character", character_path(character)%></p>
+        <p><%= link_to "Main character", character_path(character, source:"character_show")%></p>
         <p class= "character"><%= image_tag ("Rick_Sanchez.png") if Character.find(params["character_id"]).category == 'Rick'  %></p>
         <p class= "character"><%= image_tag ("Morty_Smith.png") if Character.find(params["character_id"]).category == 'Morty'%></p>
     </div>
     <div class= "character">
         <% associated_character = Character.find(params["associated_character_id"]) %>
-        <p><%= link_to "Associated character", character_path(associated_character)%></p>
+        <p><%= link_to "Associated character", character_path(associated_character,  source:"character_show")%></p>
         <p class= "character"><%= image_tag ("Rick_Sanchez.png") if Character.find(params["associated_character_id"]).category == 'Rick' %></p>
         <p class= "character"><%= image_tag ("Morty_Smith.png") if Character.find(params["associated_character_id"]).category == 'Morty'%></p>  
     </div>

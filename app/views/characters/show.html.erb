@@ -1,15 +1,13 @@
-<h1>characters#show</h1>
 
-<h2><%= @character.name %></h2>
-<%= @character.photo_url %>
-<%= @character.description %>
+<%= render 'character_detail', character: @character %>
 
 
-<h2>Choose the associated <%= @category %> </h2>
-
-<% @associated_characters.each do |associated_character| %>
+<% unless @associated_characters.nil? %>
+    <h2>Choose the associated <%= @category %> </h2>
+    <% @associated_characters.each do |associated_character| %>
     <%= associated_character.name %>
     <%= associated_character.photo_url %>
     <%= associated_character.description %>
     <%= link_to "choose", new_character_booking_path(@character.id , associated_character_id: associated_character.id) %> 
+    <% end %>
 <% end %>
