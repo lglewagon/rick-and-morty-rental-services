@@ -1,13 +1,35 @@
-<h1>characters#index</h1>
+<!-- <h1>characters#index</h1> -->
+<div class="container">
+  <h2>Start by choosing your favorite <%= @category %>_</h2>
+</div>
 
-<h2>Start by choosing your favorite <%= @category %></h2>
+<div class="row py-5 col-9">
 
-<% @characters.each do |character| %>
-    <%= character.name %>
-    <%= character.photo_url %>
-    <%= character.description %>
-    <%= link_to "en savoir plus", character_path(character) %>
+    <% @characters.each do |character| %>
+        <div class="col-sm-3 d-flex flex-column">
+        <div class="card py-5" style="width: 18rem;">
+          <!-- insert image -->
+          <div class="card-body">
+            <h5 class="card-title"> <%= character.name %> </h5>
+            <%= link_to "en savoir plus", character_path(character), class: 'btn btn-primary' %>
+          </div>
+          </div>
+        </div>
+    <% end %>
+</div>
+
+<% if @category == "Rick" %>
+  <div class="fixed-img">
+    <%= image_tag ("rick.svg")%>
+  </div>
+<% else %>
+  <div class="fixed-img">
+    <%= image_tag ("morty.svg")%>
+  </div>
 <% end %>
+
+
+
 
 <!-- <div class="toggle">
   <input type="checkbox" name="switch" id="switch">
@@ -15,4 +37,6 @@
 </div> -->
 
 <!-- link_to characters path la même page mais avec l'autre catégorie parametres categorie=
+ -->
+<!-- <img src="..." class="card-img-top" alt="..." >
  -->
