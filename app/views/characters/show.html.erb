@@ -1,18 +1,10 @@
 <div class="container">
   <%= render 'character_detail', character: @character %>
 </div>
-
-
-
-
-
   <% unless @associated_characters.nil? %>
-
       <div class="container">
         <h2>Choose the associated <%= @category %>_ </h2>
       </div>
-
-
 <div class="container cards">
     <% @associated_characters.each do |associated_character| %>
       <div class="col">

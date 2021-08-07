@@ -2,11 +2,8 @@
 <div class="container">
   <h2>Start by choosing your favorite <%= @category %>_</h2>
 </div>
-
 <div class=" cards col-9 ">
-
   <% @characters.each do |character| %>
-
     <div class="col">
       <div class="card col " style="width: 18rem;">
         <% if File.file? "#{Rails.root}/app/assets/images/#{character.photo_url}.jpg" %>
@@ -20,9 +17,7 @@
         </div>
       </div>
     </div>
-
   <% end %>
-
 </div>
 
 
