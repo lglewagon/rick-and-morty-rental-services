@@ -6,14 +6,17 @@
 // General style
 $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
-$body-bg:                 $light-gray;
+$body-bg:                 $blackhole;
 $font-size-base: 1rem;
 
 // Colors
-$body-color: $gray;
-$primary:    $blue;
-$success:    $green;
-$info:       $yellow;
+$body-color: $galacticyellow;
+$primary:    $spacegreen;
+$success:    $spacegreen;
+$info:       $galacticyellow;
+$link-hover-color: $galacticyellow;
+$link-color: $galacticyellow;
+
 $danger:     $red;
 $warning:    $orange;
 
@@ -23,3 +26,7 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+$btn-link-color:              $link-color !default;
+$btn-link-hover-color:        $link-hover-color !default;
+
+
