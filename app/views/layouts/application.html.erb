@@ -13,25 +13,27 @@
 
   <body>
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-        <a class="navbar-brand" href="#"> <%= image_tag ("Logo.png") %></a>
+        <%= link_to (image_tag ("Logo.png")), root_path, class:"navbar-brand" %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" id="font-color" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="font-color" href="#">Messages</a>
-            </li>
-            <li class="nav-item dropdown">
-              <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
-              <div class="dropdown-menu dropdown-menu-right" id="black-background" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" id="font-color" href="#">Action</a>
-                <a class="dropdown-item" id="font-color" href="#">Another action</a>
-              </div>
-            </li>
-          </ul>
-        </div>
+        <% if user_signed_in? == false %>
+          <div class="btn btn-primary align-items-center">
+          <%= link_to "Sign In", new_user_session_path %>
+          </div>
+        <% else %>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" id="font-color" href="#"><%= current_user.email %></a>
+              </li>
+              <li class="nav-item dropdown">
+                <%= image_tag ("Morty_on.png"), class:"avatar dropdown-toggle", id:"navbarDropdown", data:{toggle: "dropdown"}, aria:{haspopup: true, expanded: false} %>
+                <div class="dropdown-menu dropdown-menu-right" id="black-background" aria-labelledby="navbarDropdown">
+                  <%= button_to "Log out", destroy_user_session_path, method: :delete, class:"dropdown-item", id:"font-color" %>
+                </div>
+              </li>
+            </ul>
+          </div>
+        <% end %>
       </div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
