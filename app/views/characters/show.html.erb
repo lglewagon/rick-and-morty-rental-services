@@ -6,7 +6,11 @@
     <h2>Choose the associated <%= @category %> </h2>
     <% @associated_characters.each do |associated_character| %>
     <%= associated_character.name %>
-    <%= associated_character.photo_url %>
+    <% if File.file? "#{Rails.root}/app/assets/images/#{associated_character.photo_url}.jpg" %>
+      <%= image_tag ("#{associated_character.photo_url}.jpg") %>
+    <% elsif File.file? "#{Rails.root}/app/assets/images/#{associated_character.photo_url}.png" %>
+      <%= image_tag ("#{associated_character.photo_url}.png") %>
+    <% end %>
     <%= associated_character.description %>
     <%= link_to "choose", new_character_booking_path(@character.id , associated_character_id: associated_character.id) %> 
     <% end %>
