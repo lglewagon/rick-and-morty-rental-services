@@ -1,27 +1,40 @@
 <h1>Your current booking 🪐 </h1>
-    <div class= "character">
-        <% character = Character.find(params["character_id"]) %>
-        <p><%= link_to "Main character", character_path(character, source:"character_show")%></p>
-        <p class= "character"><%= image_tag ("Rick_Sanchez.png") if Character.find(params["character_id"]).category == 'Rick'  %></p>
-        <p class= "character"><%= image_tag ("Morty_Smith.png") if Character.find(params["character_id"]).category == 'Morty'%></p>
-    </div>
-    <div class= "character">
-        <% associated_character = Character.find(params["associated_character_id"]) %>
-        <p><%= link_to "Associated character", character_path(associated_character,  source:"character_show")%></p>
-        <p class= "character"><%= image_tag ("Rick_Sanchez.png") if Character.find(params["associated_character_id"]).category == 'Rick' %></p>
-        <p class= "character"><%= image_tag ("Morty_Smith.png") if Character.find(params["associated_character_id"]).category == 'Morty'%></p>  
-    </div>
-    <div class="card">
-        <h5>Title: <%= character.name %> & <%= associated_character.name %> </h5>
-        <h6>Lien: <%= link_to "Main character", character_path(character) %> & <%= link_to "Associated character", character_path(associated_character) %> </h6>
-        <h6>Description: <%= character.description %> </h6>
-        <h6>Description: <%= associated_character.description %></h6>
-    </div>
-    <%# <div class="user_info">
-    <p>Avatar: <%= user. %> </p>
+
+    <div class= "container">
+        <div class="row">
+            <div class="col ">
+                <div class="card">
+                    <% character = Character.find(params["character_id"]) %>
+                        <div class="btn btn-primary">
+                            <h6><%= link_to "Main character", character_path(character, source:"character_show")%></h6>
+                        </div>
+                            <div class="card-img-top">
+                                <%= image_tag ("Rick_Sanchez.png") if Character.find(params["character_id"]).category == 'Rick'  %>
+                                <%= image_tag ("Morty_Smith.png") if Character.find(params["character_id"]).category == 'Morty'%>
+                            </div>
+                        <h5>Title: <%= character.name %> </h5>
+                        <h6>Lien: <%= link_to "Main character", character_path(character) %> </h6>
+                        <h6>Description: <%= character.description %> </h6>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <% associated_character = Character.find(params["associated_character_id"]) %>
+                        <div class="btn btn-primary">
+                            <h6><%= link_to "Associated character", character_path(associated_character,  source:"character_show")%></h5>
+                            <div class="card-img-top">
+                                <div>
+                                    <%= image_tag ("Rick_Sanchez.png") if Character.find(params["associated_character_id"]).category == 'Rick' %>
+                                    <%= image_tag ("Morty_Smith.png") if Character.find(params["associated_character_id"]).category == 'Morty'%> 
+                                </div>
+                            </div> 
+                </div>
+            </div>
+        </div>
     </div>
 
-    <%# Need to code User info %>
+
+   
 
 
 
