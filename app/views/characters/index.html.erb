@@ -4,7 +4,11 @@
 
 <% @characters.each do |character| %>
     <%= character.name %>
-    <%= character.photo_url %>
+    <% if File.file? "#{Rails.root}/app/assets/images/#{character.photo_url}.jpg" %>
+      <%= image_tag ("#{character.photo_url}.jpg") %>
+    <% elsif File.file? "#{Rails.root}/app/assets/images/#{character.photo_url}.png" %>
+      <%= image_tag ("#{character.photo_url}.png") %>
+    <% end %>
     <%= character.description %>
     <%= link_to "en savoir plus", character_path(character) %>
 <% end %>
