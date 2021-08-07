@@ -18,12 +18,12 @@
 <div class="container">
   <div class="row">
 
-    <div class="col">
+    <div class="col justify-content-between">
       <div>
         <%= image_tag ("rick.svg")%>
       </div>
       <br>
-      <div class="btn btn-primary">
+      <div class="btn btn-primary btn-lg">
        <%= link_to "Rick", characters_path(character: "Rick") %>
       </div>
     </div>
@@ -34,7 +34,7 @@
         <%= image_tag ("morty.svg")%>
       </div>
       <br>
-      <div class="btn btn-primary">
+      <div class="btn btn-primary btn-lg">
          <%= link_to "Morty", characters_path(character: "Morty") %>
       </div>
     </div>

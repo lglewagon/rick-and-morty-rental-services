@@ -5,9 +5,13 @@
    <h2><%= character.name %>_</h2>
  </div>
 
-<div class="container row">
-  <div class="col-4">
-    <%= character.photo_url %>
+<div class="container row py-5">
+  <div class="col-4 ">
+    <% if File.file? "#{Rails.root}/app/assets/images/#{character.photo_url}.jpg" %>
+      <%= image_tag ("#{character.photo_url}.jpg"), id: 'img' %>
+    <% elsif File.file? "#{Rails.root}/app/assets/images/#{character.photo_url}.png" %>
+       <%= image_tag ("#{character.photo_url}.png"), id: 'img' %>
+    <% end %>
   </div>
 
   <div class="col-4">
