@@ -3,20 +3,23 @@
   <h2>Start by choosing your favorite <%= @category %>_</h2>
 </div>
 
-<div class="row py-5 col-9">
+<div class="container">
 
     <% @characters.each do |character| %>
         <div class="col-sm-3 d-flex flex-column">
-        <div class="card py-5" style="width: 18rem;">
-          <!-- insert image -->
-          <div class="card-body">
-            <h5 class="card-title"> <%= character.name %> </h5>
-            <%= link_to "en savoir plus", character_path(character), class: 'btn btn-primary' %>
-          </div>
+          <div class="card py-5" style="width: 18rem;">
+            <!-- insert image -->
+            <div class="card-body">
+              <h5 class="card-title"> <%= character.name %> </h5>
+              <%= link_to "en savoir plus", character_path(character), class: 'btn btn-primary' %>
+            </div>
           </div>
         </div>
     <% end %>
 </div>
+
+<!-- fixed ascii image
+ -->
 
 <% if @category == "Rick" %>
   <div class="fixed-img">

@@ -2,12 +2,26 @@
 <%= render 'character_detail', character: @character %>
 
 
-<% unless @associated_characters.nil? %>
-    <h2>Choose the associated <%= @category %> </h2>
-    <% @associated_characters.each do |associated_character| %>
-    <%= associated_character.name %>
-    <%= associated_character.photo_url %>
-    <%= associated_character.description %>
-    <%= link_to "choose", new_character_booking_path(@character.id , associated_character_id: associated_character.id) %> 
-    <% end %>
-<% end %>
+<div class="container">
+  <% unless @associated_characters.nil? %>
+      <h2>Choose the associated <%= @category %>_ </h2>
+
+      <!-- <div class="row py-5 col-9"> -->
+          <% @associated_characters.each do |associated_character| %>
+              <div class="col-sm-3 d-flex flex-column">
+                <div class="card py-5" style="width: 18rem;">
+                  <!-- insert image -->
+                  <div class="card-body">
+                    <h5 class="card-title"> <%= associated_character.name %> </h5>
+                    <%= link_to "Pair with this character", new_character_booking_path(@character.id , associated_character_id: associated_character.id), class: 'btn btn-primary' %>
+                  </div>
+                </div>
+              </div>
+          <% end %>
+      <!-- </div> -->
+
+  <% end %>
+
+</div>
+
+
