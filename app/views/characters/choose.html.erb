@@ -2,22 +2,22 @@
  -->
  <div class="container py-5">
   <h1>Welcome to</h1>
-  <p ><%= image_tag ("logo_rickandmorty.svg")%></p>
+    <%= image_tag ("logo_rickandmorty.svg")%>
  </div>
 
 <div class="container py-5">
-  <h3>Choose your first character_</h3>
+  <h2>Choose your first character_</h2>
 </div>
 
 
 <div class="container">
-  <div class="row align-items-start">
+  <div class="row">
 
     <div class="col">
-      <div class="d-flex align-items-start flex-column">
-        <p><%= image_tag ("rick.svg")%></p>
+      <div>
+        <%= image_tag ("rick.svg")%>
       </div>
-      <div class="btn btn-primary align-items-center">
+      <div class="btn btn-primary">
        <%= link_to "Rick", characters_path(character: "Rick") %>
       </div>
     </div>
@@ -25,7 +25,7 @@
 
     <div class="col">
       <div>
-        <p><%= image_tag ("morty.svg")%></p>
+        <%= image_tag ("morty.svg")%>
       </div>
       <div class="btn btn-primary">
          <%= link_to "Morty", characters_path(character: "Morty") %>

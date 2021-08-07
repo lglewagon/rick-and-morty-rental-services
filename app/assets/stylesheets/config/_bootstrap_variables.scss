@@ -29,4 +29,13 @@ $border-radius-sm: 2px;
 $btn-link-color:              $link-color !default;
 $btn-link-hover-color:        $link-hover-color !default;
 
+// fonts 🦦
+
+$font-size-base:              1rem !default;
+
+$h1-font-size:                $font-size-base * 9 !default;
+$h2-font-size:                $font-size-base * 2.5 !default;
+$h3-font-size:                $font-size-base * 1.9 !default;
+$h4-font-size:                $font-size-base * 1.5 !default;
+$h5-font-size:                $font-size-base * 1.25 !default;
 
