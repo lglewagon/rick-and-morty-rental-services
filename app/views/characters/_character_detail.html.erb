@@ -1,5 +1,18 @@
-<h1>characters#show</h1>
+<!-- <h1>characters#show</h1>
+ -->
 
-<h2><%= character.name %></h2>
-<%= character.photo_url %>
-<%= character.description %>
+ <div class="container">
+   <h2><%= character.name %>_</h2>
+ </div>
+
+<div class="container row">
+  <div class="col-4">
+    <%= character.photo_url %>
+  </div>
+
+  <div class="col-4">
+    <%= character.description %>
+  </div>
+</div>
+
+<br>
