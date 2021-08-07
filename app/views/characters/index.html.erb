@@ -9,7 +9,11 @@
     <% @characters.each do |character| %>
         <div class="col-sm-3 d-flex flex-column">
           <div class="card py-5" style="width: 18rem;">
-            <!-- insert image -->
+              <% if File.file? "#{Rails.root}/app/assets/images/#{character.photo_url}.jpg" %>
+                <%= image_tag ("#{character.photo_url}.jpg") %>
+              <% elsif File.file? "#{Rails.root}/app/assets/images/#{character.photo_url}.png" %>
+                <%= image_tag ("#{character.photo_url}.png") %>
+               <% end %>
             <div class="card-body">
               <h5 class="card-title"> <%= character.name %> </h5>
               <%= link_to "en savoir plus", character_path(character), class: 'btn btn-primary' %>
