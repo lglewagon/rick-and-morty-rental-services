@@ -2,7 +2,6 @@
 <%= render 'character_detail', character: @character %>
 
 
-<<<<<<< HEAD
 <div class="container">
   <% unless @associated_characters.nil? %>
       <h2>Choose the associated <%= @category %>_ </h2>
@@ -37,7 +36,7 @@
       <%= image_tag ("#{associated_character.photo_url}.png") %>
     <% end %>
     <%= associated_character.description %>
-    <%= link_to "choose", new_character_booking_path(@character.id , associated_character_id: associated_character.id) %> 
+    <%= link_to "choose", new_character_booking_path(@character.id , associated_character_id: associated_character.id) %>
     <% end %>
 <% end %>
 >>>>>>> master
