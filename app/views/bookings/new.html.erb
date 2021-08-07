@@ -5,9 +5,6 @@
             <div class="col ">
                 <div class="card">
                     <% character = Character.find(params["character_id"]) %>
-                        <div class="btn btn-primary">
-                            <%= link_to "Main character", character_path(character, source:"character_show")%>
-                        </div>
                             <div class="card-img-top">
                                 <%= image_tag ("Rick_Sanchez.png") if Character.find(params["character_id"]).category == 'Rick'  %>
                                 <%= image_tag ("Morty_Smith.png") if Character.find(params["character_id"]).category == 'Morty'%>
@@ -15,13 +12,14 @@
                         <h5>Title: <%= character.name %> </h5>
                         <h6>Lien: <%= link_to "Main character", character_path(character) %> </h6>
                         <h6>Description: <%= character.description %> </h6>
+                            <div class="btn btn-primary">
+                                <%= link_to "Description", character_path(character, source:"character_show")%>
+                            </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card">
                     <% associated_character = Character.find(params["associated_character_id"]) %>
-                        <div class="btn btn-primary">
-                            <%= link_to "Associated character", character_path(associated_character,  source:"character_show")%>
                             <div class="card-img-top">
                                 <div>
                                     <%= image_tag ("Rick_Sanchez.png") if Character.find(params["associated_character_id"]).category == 'Rick' %>
@@ -29,7 +27,10 @@
                                 </div>
                             <h5>Title: <%= character.name %> </h5>
                             <h6>Description: <%= character.description %> </h6>
+                            <div class="btn btn-primary">
+                                <%= link_to "Description", character_path(associated_character,  source:"character_show")%>
                             </div> 
+
                 </div>
             </div>
         </div>
