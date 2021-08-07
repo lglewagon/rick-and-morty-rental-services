@@ -4,23 +4,21 @@
 </div>
 
 <div class="container">
-
-
-    <% @characters.each do |character| %>
-        <div class="col-sm-3 d-flex flex-column">
-          <div class="card py-5" style="width: 18rem;">
-              <% if File.file? "#{Rails.root}/app/assets/images/#{character.photo_url}.jpg" %>
-                <%= image_tag ("#{character.photo_url}.jpg") %>
-              <% elsif File.file? "#{Rails.root}/app/assets/images/#{character.photo_url}.png" %>
-                <%= image_tag ("#{character.photo_url}.png") %>
-               <% end %>
-            <div class="card-body">
-              <h5 class="card-title"> <%= character.name %> </h5>
-              <%= link_to "en savoir plus", character_path(character), class: 'btn btn-primary' %>
-            </div>
-          </div>
+  <% @characters.each do |character| %>
+    <div class="col-sm-3 d-flex flex-column">
+      <div class="card py-5" style="width: 18rem;">
+        <% if File.file? "#{Rails.root}/app/assets/images/#{character.photo_url}.jpg" %>
+          <%= image_tag ("#{character.photo_url}.jpg"), id: 'img' %>
+        <% elsif File.file? "#{Rails.root}/app/assets/images/#{character.photo_url}.png" %>
+           <%= image_tag ("#{character.photo_url}.png"), id: 'img' %>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"> <%= character.name %> </h5>
+         <%= link_to "en savoir plus", character_path(character), class: 'btn btn-primary' %>
         </div>
-    <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 <!-- fixed ascii image
@@ -34,7 +32,6 @@
   <div class="fixed-img">
     <%= image_tag ("morty.svg")%>
   </div>
-
 <% end %>
 
 
